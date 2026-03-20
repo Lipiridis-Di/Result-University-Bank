@@ -23,6 +23,10 @@
 
 - JavaScript (ES6+)
 
+## Demo
+
+[Открыть проект](https://lipiridis-di.github.io/Result-University-Bank/)
+
 ## Запуск проекта
 
 1. Клонировать репозиторий:
