@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+    <section id="add-client-form"> 
+        <h2>Добавить клиента</h2>
+        <input type="text" id="client-name-input" placeholder="Имя клиента">
+        <input type="number" id="client-balance-input" placeholder="Начальный баланс клиента">
+        <button id="add-client-btn">Добавить клиента</button>    
+    </section>
+
+
+    <section id="control-panel">
+        <h2>Панель управления</h2>
+        <label>
+           клиент:
+            <select id="client-select"></select>
+        </label>
+            действие:
+            <select id="action-select">
+                <option value="deposit">Пополнить</option>
+                <option value="withdraw">Снять</option>
+                <option value="transfer">Перевести</option>
+                <option value="remove">Удалить</option>
+            </select>
+        </label>
+
+        <label id ="amount-field">
+            сумма:
+            <input type="number" id="amount-input">
+        </label>
+
+        <label id="target-field">
+            кому(получатель):
+            <select id="target-select"></select>
+        </label>
+
+        <button id="apply-action-btn">Применить</button>
+    </section>
+
+    <section id="client-list">
+        <h2>Клиенты банка</h2>
+       <div id="clients-container">
+        <!-- Карточки клиентов рендарятся сюда динамически из ui.js -->
+       </div>
+    </section>
+
+
+
+        
+
+
+
+
+
+
+
     <script src="index.js"></script>
-    <h1>Result University Bank</h1>
+    <script src="ui.js"></script>
 </body>
 </html>

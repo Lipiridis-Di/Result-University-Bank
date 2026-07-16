@@ -1,0 +1,201 @@
+:root {
+    --color-navy: #101d33;
+    --color-navy-light: #1c2f4f;
+    --color-graphite: #2e3440;
+    --color-bg: #eef1f5;
+    --color-surface: #ffffff;
+    --color-border: #dde3ea;
+    --color-accent: #9c7c33;
+    --color-accent-light: #c7a34e;
+    --color-success: #1e6b3e;
+    --color-success-bg: #e7f3ec;
+    --color-error: #a3283f;
+    --color-error-bg: #fbeaee;
+    --font-display: Georgia, 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'SF Mono', 'Consolas', monospace;
+    --radius: 6px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-bg);
+    color: var(--color-graphite);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+h1 {
+    font-family: var(--font-display);
+    background: var(--color-navy);
+    color: #f4f6f9;
+    margin: 0;
+    padding: 28px 40px;
+    font-size: 1.9rem;
+    letter-spacing: 0.02em;
+    border-bottom: 3px solid var(--color-accent);
+}
+
+h2 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+section {
+    max-width: 1000px;
+    margin: 24px auto;
+    padding: 24px 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+/* Форма добавления клиента */
+#add-client-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+#add-client-form h2 {
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Панель управления */
+#control-panel {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#control-panel h2 {
+    width: 100%;
+}
+
+#control-panel label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #5a6270;
+    font-weight: 600;
+}
+
+/* Общие стили полей ввода */
+input[type="text"],
+input[type="number"],
+select {
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    background: var(--color-surface);
+    color: var(--color-graphite);
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid var(--color-accent-light);
+    outline-offset: 1px;
+}
+
+button {
+    padding: 10px 20px;
+    background: var(--color-navy);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+button:hover {
+    background: var(--color-navy-light);
+}
+
+button:focus-visible {
+    outline: 2px solid var(--color-accent-light);
+    outline-offset: 2px;
+}
+
+/* Список клиентов — сетка */
+#clients-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.client-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+}
+
+.client-card p {
+    margin: 6px 0;
+}
+
+.client-card p:first-child {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--color-navy);
+}
+
+.client-card p:nth-child(2) {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 1rem;
+    color: var(--color-graphite);
+}
+
+.card-message {
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    font-weight: 600;
+}
+
+/* Пустой список клиентов — приглашение к действию */
+#clients-container:empty::after {
+    content: "Клиентов пока нет — добавьте первого через форму выше.";
+    grid-column: 1 / -1;
+    color: #8a92a0;
+    font-style: italic;
+    padding: 12px 0;
+}
+
+@media (max-width: 640px) {
+    section {
+        margin: 16px 12px;
+        padding: 18px 16px;
+    }
+
+    h1 {
+        padding: 20px 24px;
+        font-size: 1.5rem;
+    }
+
+    #control-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
